@@ -4,93 +4,52 @@ import {colors, goods} from './goods.js';
  * @param {string} brand
  * @returns {*}
  */
-const brandFilter = (brand) => {
-  let filteredArr = goods.filter((el) => {
-    return el.brand === brand
-  })
-   return filteredArr
-};
+const brandFilter = (brand) => goods.filter((el) => el.brand === brand);
 
 /**
  * @param {string} color
  * @returns {*}
  */
-const colorFilter = (color) => {
-  let filteredArr = goods.filter((el) => {
-    return el.color === color
-  })
-  return filteredArr
-
-};
+const colorFilter = (color) => goods.filter((el) => el.color === color);
 
 /**
  * @param {string} model
  * @returns {*}
  */
-const modelFilter = (model) => {
-  let filteredArr = goods.filter((el) => {
-    return el.model === model
-  })
-  return filteredArr
-};
+const modelFilter = (model) => goods.filter((el) => el.model === model);
 
 /**
  * @param {number} memory
  * @returns {*}
  */
-const memoryFilter = (memory) => {
-  let filteredArr = goods.filter((el) => {
-    return el.memory === memory
-  })
-  return filteredArr
-};
+const memoryFilter = (memory) => goods.filter((el) => el.memory === memory);
 
 /**
  * @param {number} price
  * @returns {*}
  */
-const priceFilter = (price) => {
-  let filteredArr = goods.filter((el) => {
-    return el.price === price
-  })
-  return filteredArr
-};
+const priceFilter = (price) => goods.filter((el) => el.price === price);
 
 /**
  * @param {string} country
  * @returns {*}
  */
-const countryFilter = (country) => {
-  let filteredArr = goods.filter((el) => {
-    return el.country === country
-  })
-  return filteredArr
-};
+const countryFilter = (country) => goods.filter((el) => el.country === country);
 
 /**
  * @param {string} os
  * @returns {*}
  */
-const osFilter = (os) => {
-  let filteredArr = goods.filter((el) => {
-    return el.os === os
-  })
-  return filteredArr
-};
+const osFilter = (os) => goods.filter((el) => el.os === os);
+
 
 /**
  * @param {number} from
  * @param {number} to
  */
-const rangeFilter = (from, to) => {
-  let filteredArr = goods.filter((el) => {
-    return el.price >= from && el.price <= to
-  })
+const rangeFilter = (from, to) => goods.filter((el) => el.price >= from && el.price <= to);
 
-  return filteredArr
-};
-
-const maxPriceReducer = () => goods.reduce((minResult, current) => minResult = current.price > minResult ? current.price : minResult, goods[0].price);
+const maxPriceReducer = () => goods.reduce((maxResult, current) => maxResult = current.price > maxResult ? current.price : maxResult, goods[0].price);
 
 const minPriceReducer = () => goods.reduce((minResult, current) => minResult = current.price < minResult ? current.price : minResult, goods[0].price);
 
@@ -98,22 +57,13 @@ const toMinSorter = () => goods.sort((a, b) => a.price - b.price);
 const toMaxSorter = () => goods.sort((a, b) => b.price - a.price);
 
 export const filters = {
-  brandFilter,
-  countryFilter,
-  priceFilter,
-  osFilter,
-  colorFilter,
-  memoryFilter,
-  modelFilter,
-  rangeFilter,
+    brandFilter, countryFilter, priceFilter, osFilter, colorFilter, memoryFilter, modelFilter, rangeFilter,
 };
 
 export const reducers = {
-  minPriceReducer,
-  maxPriceReducer,
+    minPriceReducer, maxPriceReducer,
 };
 
 export const sorters = {
-  toMaxSorter,
-  toMinSorter,
+    toMaxSorter, toMinSorter,
 };
